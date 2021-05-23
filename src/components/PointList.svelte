@@ -1,12 +1,16 @@
 <script>
-  import {onMount, getContext} from 'svelte'
-  const PointerestService = getContext("PointerestService");
+  import {onMount} from 'svelte'
+  import {PointerestService} from "../services/pointerest-service";
+  const poiService = new PointerestService("http://localhost:4000");
 
+  let poiCount;
   let pointList;
   onMount(async () => {
-    pointList = await PointerestService.getPoints()
+    pointList = await poiService.getPoints()
+    poiCount = pointList.length
   })
 </script>
+
 
 <h3 class="uk-heading-divider">
   Poi List </h3>

@@ -3,15 +3,16 @@
     import { PointerestService } from "../services/pointerest-service";
 
     const poiService = new PointerestService("http://localhost:4000");
-
+    let userCount;
     let userList;
     onMount(async () => {
         userList = await poiService.getUsers()
+        userCount = userList.length
     })
 </script>
 
 <h3 class="uk-heading-divider">
-    Poi List </h3>
+    User List </h3>
 <div class="uk-table uk-table-divider">
     <table class="uk-table">
         <thead>
