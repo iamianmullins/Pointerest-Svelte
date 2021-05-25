@@ -1,6 +1,6 @@
 <script>
     import travelicon from "/src/assets/travelicon.png"
-    import {title, subTitle} from "../stores.js"
+    import {title, subTitle, user} from "../stores.js"
 </script>
 
 <div class="uk-width-2-3@m  uk-card uk-card-default uk-padding-small uk-visible@m">
@@ -22,7 +22,7 @@
                     <i class="fas fa-map fa-3x" style="color:rgb(247, 181, 37)" title="Source repo" pos="bottom" uk-tooltip></i>
                 </div>
                 <div class="uk-width-expand@m uk-text-left">
-                    <div class="uk-text-muted uk-text-center" style="font-size:xx-small">Pointerest-Svelte</div>
+                    <div class="uk-text-muted uk-text-center" style="font-size:xx-small">{$user.firstName} {$user.lastName}</div>
                 </div>
             </a>
         </div>

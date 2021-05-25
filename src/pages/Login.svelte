@@ -1,7 +1,7 @@
 <script>
     import {title, subTitle, navBar, welcomeBar} from "../stores"
     import LoginForm from "../components/LoginForm.svelte"
-    import homer3 from "/src/assets/travelicon.png";
+    import travelicon from "/src/assets/travelicon.png";
     title.set("Pointerest");
     subTitle.set("Please Log in");
 
@@ -18,6 +18,6 @@
         </div>
     </div>
     <div class="uk-width-1-3@m ">
-        <img width="300" src="{homer3}" alt="homer">
+        <img width="300" src="{travelicon}" alt="travelicon">
     </div>
 </div>
