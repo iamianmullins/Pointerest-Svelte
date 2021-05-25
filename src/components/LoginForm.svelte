@@ -1,12 +1,21 @@
 <script>
     import { push } from "svelte-spa-router";
+    import {getContext} from "svelte";
+    const pointerestService = getContext("PointerestService");
 
     let email = ""
     let password = "";
     let errorMessage = "";
 
     async function login() {
-        push("/users");
+        let success = await pointerestService.login(email, password);
+        if (success) {
+            push("/users");
+        } else {
+            email = "";
+            password = "";
+            errorMessage = "Invalid Credentials";
+        }
     }
 </script>
 
