@@ -6,6 +6,7 @@
   import Login from "./pages/Login.svelte"
   import Points from "./pages/Points.svelte"
   import Users from "./pages/Users.svelte";
+  import NewPoi from "./pages/NewPoi.svelte";
   import {PointerestService} from "./services/pointerest-service";
   setContext("PointerestService", new PointerestService("http://localhost:4000"));
 
@@ -13,6 +14,7 @@
     "/" : Main,
     "/login": Login,
     "/users": Users,
+    "/newpoi": NewPoi,
     "/points": Points,
     "/logout" : Main
   }
