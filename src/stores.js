@@ -17,6 +17,12 @@ export const welcomeBar = [
 
 export const mainBar = [
     {
+        title: "Newpoi",
+        icon: "fas fa fa-map-pin fa-3x",
+        colour: "color:rgb(153, 196, 74)",
+        link: "/#/newpoi",
+    },
+    {
         title: "Points",
         icon: "fa fa-map-signs fa-3x",
         colour: "color:rgb(153, 196, 74)",
@@ -43,3 +49,11 @@ export const navBar = writable({
 });
 export const title = writable("");
 export const subTitle = writable("");
+
+export const user = writable({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    _id: ""
+});
