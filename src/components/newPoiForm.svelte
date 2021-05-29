@@ -43,7 +43,7 @@
                     <div class="uk-grid uk-grid-stack">
                         <div class="uk-width-1-1">
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Enter User Name</label>
+                                <label class="uk-form-label" for="form-stacked-text">User Name</label>
                                 <div class="uk-form-controls">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: user"></span>
@@ -87,7 +87,7 @@
                                         <div class="uk-form-controls">
                                             <div class="uk-inline">
                                                 <span class="uk-form-icon" uk-icon="icon: location"></span>
-                                                <input input bind:value={latitude}  class="uk-input uk-width-1-1" id="form-stacked-text" type="number" step="0.01" name="latitude" placeholder="latitude" />
+                                                <input input bind:value={latitude}  class="uk-input uk-width-1-1" id="form-stacked-text" type="number" min="-180.0000000" max="180.0000000" step="0.0000001" name="latitude" placeholder="latitude" />
                                             </div>
                                         </div>
                                     </div>
