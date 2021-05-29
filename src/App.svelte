@@ -1,13 +1,17 @@
 <script>
   import {setContext} from "svelte";
+  import {PointerestService} from "./services/pointerest-service";
+  import Main from "./pages/Main.svelte"
+
+  import Login from "./pages/Login.svelte"
+  import Signup from "./pages/Signup.svelte";
+  import Points from "./pages/Points.svelte"
+  import NewPoi from "./pages/NewPoi.svelte";
+  import Settings from "./pages/Settings.svelte";
+  import Users from "./pages/Users.svelte";
   import Navigator from "./components/Navigator.svelte"
   import Router from "svelte-spa-router";
-  import Main from "./pages/Main.svelte"
-  import Login from "./pages/Login.svelte"
-  import Points from "./pages/Points.svelte"
-  import Users from "./pages/Users.svelte";
-  import NewPoi from "./pages/NewPoi.svelte";
-  import {PointerestService} from "./services/pointerest-service";
+
   setContext("PointerestService", new PointerestService("http://localhost:4000"));
 
   let routes = {
@@ -16,7 +20,9 @@
     "/users": Users,
     "/newpoi": NewPoi,
     "/points": Points,
-    "/logout" : Main
+    "/logout" : Main,
+    "/signup" : Signup,
+    "/settings" : Settings
   }
 
 </script>
