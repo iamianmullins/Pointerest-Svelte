@@ -39,6 +39,9 @@
           <td>{point.latitude}</td>
           <td>{point.category}</td>
           <td>{point.longitude}</td>
+          <td>
+            {point.user}
+          </td>
           <tr>
           <tbody>
               <th>
