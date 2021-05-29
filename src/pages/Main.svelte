@@ -1,12 +1,15 @@
 <script>
     import {title, subTitle, navBar, welcomeBar} from "../stores"
     import explorer from "/src/assets/explorer.jpg";
+    import {getContext} from "svelte";
+    const pointerestService = getContext("PointerestService");
     title.set("Pointerest");
     subTitle.set("Sign up or Log in");
 
     navBar.set({
         bar: welcomeBar
     });
+    pointerestService.logout();
 </script>
 
 

@@ -8,9 +8,9 @@
     let errorMessage = "";
 
     async function login() {
-        let success = await pointerestService.login(email, password);
+        let success = await pointerestService.login(email, password)
         if (success) {
-            push("/users");
+            push("/newpoi");
         } else {
             email = "";
             password = "";
@@ -18,6 +18,8 @@
         }
     }
 </script>
+
+
 
 <form on:submit|preventDefault={login}>
     <div class="uk-margin uk-text-left">
