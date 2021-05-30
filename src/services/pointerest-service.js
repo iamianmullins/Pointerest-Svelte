@@ -108,6 +108,17 @@ export class PointerestService {
         }
     }
 
+
+    async deleteaPoint() {
+        try {
+            const response = await axios.delete(`${this.baseUrl}/api/points/${id}`);
+            this.user = await response.data;
+            return this.user;
+        } catch (error) {
+            return [];
+        }
+    }
+
     async createPoi(username, poiname, category, description, latitude, longitude) {
         try {
 
@@ -119,9 +130,40 @@ export class PointerestService {
                 latitude: latitude,
                 longitude: longitude,
             };
-            console.log(this.point);
             this.pointList.push(point);
             const response = await axios.post(this.baseUrl + "/api/points", point);
+            console.log(response);
+            return response.status == 200;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async getReviews() {
+        try {
+            const response = await axios.get(this.baseUrl + "/api/reviews")
+            this.reviewList = response.data;
+            return this.reviewList;
+        } catch (error) {
+            return [];
+        }
+    }
+
+
+    async createReview(email,comment ){
+        try {
+
+            let timestamp = new Date().toISOString();
+            console.log(email);
+            console.log(comment);
+            const review = {
+                reviewer: email,
+                comment: comment,
+                date: timestamp
+            };
+
+            this.reviewList.push(review);
+            const response = await axios.post(this.baseUrl + "/api/reviews", review);
             console.log(response);
             return response.status == 200;
         } catch (error) {

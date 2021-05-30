@@ -12,7 +12,7 @@
     onMount(async () => {
         const mapConfig = {
             location: {lat: lat, lng: lng},
-            zoom: 8,
+            zoom: 10,
             minZoom: 1,
         };
         map = new LeafletMap("pointerest-map", mapConfig, 'Terrain');
