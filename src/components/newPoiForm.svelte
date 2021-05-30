@@ -1,16 +1,17 @@
 <script lang="ts">
     import { onMount, getContext } from "svelte";
     const pointerestService = getContext("PointerestService");
-    import travelicon from "/src/assets/travelicon.png";
-    import {user} from "../stores.js"
+    import Coordinates from "./Coordinates.svelte";
 
+    import {user} from "../stores.js"
+    export let newPoiSubmitted;
 
     let pointList = [];
     let username = "";
     let poiname = "";
     let description = "";
-    let latitude = 0.00;
-    let longitude = 0.00;
+    let lat = 52.160858;
+    let lng = -7.152420;
 
     let selectedCat = 0;
     let categories = ["South East","South West","North East","North West"]
@@ -22,21 +23,16 @@
 
     async function createpoi() {
         let category = categories[selectedCat];
-        const success = await pointerestService.createPoi($user.email, poiname, category , description, latitude, longitude);
+        console.log($user.id);
+        const success = await pointerestService.createPoi($user.id, poiname, category, description ,lat, lng);
         if (success) {
-            errorMessage =""
+            if (newPoiSubmitted) newPoiSubmitted();
         } else {
             errorMessage = "New Poi not created - an error occurred";
         }
     }
+
 </script>
-
-
-<div class="uk-container uk-margin">
-    <div class="uk-child-width-expand uk-flex-center uk-flex-middle uk-text-center" uk-grid>
-        <div class="uk-width-auto@m">
-            <img width="400" src="{travelicon}" alt="travelicon">
-        </div>
         <div class="uk-width-expand@m">
             <div class="uk-margin uk-width-1-1 uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
                 <form on:submit|preventDefault={createpoi} class="uk-form-stacked uk-text-left">
@@ -82,24 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-text-center" uk-grid>
-                                    <div class="uk-width-1-2">
-                                        <label class="uk-form-label" for="form-stacked-text">Enter latitude</label>
-                                        <div class="uk-form-controls">
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: location"></span>
-                                                <input input bind:value={latitude}  class="uk-input uk-width-1-1" id="form-stacked-text" type="number" min="-180.0000000" max="180.0000000" step="0.0000001" name="latitude" placeholder="latitude" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="uk-width-1-2">
-                                        <label class="uk-form-label" for="form-stacked-text">Enter longitude</label>
-                                        <div class="uk-form-controls">
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: location"></span>
-                                                <input input bind:value={longitude} class="uk-input uk-width-1-1" id="form-stacked-text" type="number" min="-180.0000000" max="180.0000000" step="0.0000001" name="longitude" placeholder="longitude" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Coordinates bind:lat={lat} bind:lng={lng}/>
 
                                     {#if errorMessage}
                                         <div class="uk-text-left uk-text-small">
@@ -117,9 +96,6 @@
                         </div>
                 </form>
             </div>        </div>
-    </div>
 
-
-</div>
 
 

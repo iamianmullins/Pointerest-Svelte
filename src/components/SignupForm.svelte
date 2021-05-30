@@ -22,19 +22,15 @@
 
 <form on:submit|preventDefault={signup}>
     <div class="uk-margin uk-text-left">
-        <div class="uk-margin">
-            <label class="uk-form-label" >First name</label>
-            <div class="uk-inline uk-width-1-1">
-                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input bind:value={firstName} class="uk-input uk-form-large" type="text" name="firstName">
-            </div>
+        <label class="uk-form-label">First Name</label>
+        <div class="uk-inline uk-width-1-1">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <input bind:value={firstName} class="uk-input uk-form-large" type="text" name="firstName">
         </div>
-        <div class="uk-margin">
-            <label class="uk-form-label" >Last name</label>
-            <div class="uk-inline uk-width-1-1">
-                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input bind:value={lastName} class="uk-input uk-form-large" type="text" name="lastName">
-            </div>
+        <label class="uk-form-label">Last Name</label>
+        <div class="uk-inline uk-width-1-1">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <input bind:value={lastName} class="uk-input uk-form-large" type="text" name="lastName">
         </div>
         <label class="uk-form-label">Email</label>
         <div class="uk-inline uk-width-1-1">
