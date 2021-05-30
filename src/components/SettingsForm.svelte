@@ -11,7 +11,6 @@
     const pointerestService = getContext("PointerestService");
 
     async function save() {
-        console.log(firstName+ lastName+ email+ password+ $user._id)
         let success = await pointerestService.updateSettings(firstName, lastName, email, password, $user._id)
         if (success) {
             message = "Settings updated";
@@ -20,8 +19,6 @@
         }
     }
 </script>
-
-
 <form on:submit|preventDefault={save}>
     <div class="uk-margin uk-text-left">
         <div class="uk-margin">
@@ -42,7 +39,7 @@
         </div>
         <label class="uk-form-label">Email</label>
         <div class="uk-inline uk-width-1-1">
-            <span class="uk-form-icon" uk-icon="icon: mail"></span> <input bind:value={$user.email} class="uk-input uk-form-large"
+            <span class="uk-form-icon" uk-icon="icon: mail"></span> <input bind:value={email} class="uk-input uk-form-large"
                                                                            type="text" name="email">
         </div>
         <div class="uk-margin">
