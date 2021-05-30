@@ -15,7 +15,7 @@
   import Navigator from "./components/Navigator.svelte"
   import Router from "svelte-spa-router";
 
-  setContext("PointerestService", new PointerestService("http://localhost:4000"));
+  setContext("PointerestService", new PointerestService("https://pointerest-glitch.glitch.me"));
 
   let routes = {
     "/" : Main,
