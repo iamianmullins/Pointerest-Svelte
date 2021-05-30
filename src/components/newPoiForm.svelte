@@ -23,7 +23,6 @@
 
     async function createpoi() {
         let category = categories[selectedCat];
-        console.log($user.id);
         const success = await pointerestService.createPoi($user.id, poiname, category, description ,lat, lng);
         if (success) {
             if (newPoiSubmitted) newPoiSubmitted();

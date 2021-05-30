@@ -3,7 +3,8 @@
     import PointN from "../components/newPoiForm.svelte";
     import travelicon from "/src/assets/travelicon.png";
     import {LeafletMap} from '../services/leaflet-map';
-    import {onMount} from "svelte";
+    import {getContext, onMount} from "svelte";
+    const pointerestService = getContext("PointerestService");
 
     let lat = 52.160858;
     let lng = -7.152420;
@@ -12,11 +13,24 @@
     onMount(async () => {
         const mapConfig = {
             location: {lat: lat, lng: lng},
-            zoom: 8,
-            minZoom: 7,
+            zoom: 10,
+            minZoom: 1,
         };
         map = new LeafletMap("pointerest-map", mapConfig, 'Terrain');
+        map.addLayerGroup('Points');
         map.showZoomControl();
+        map.showLayerControl();
+        const pointList = await pointerestService.getPoints()
+
+        pointList.forEach(point=>{
+
+            console.log(point.user);
+            const pointsStr = ` ${point.poiname} ${point.latitude} €${point.longitude.toString()}`;
+
+            if (point.latitude && point.longitude) {
+                map.addMarker({lat: point.latitude, lng: point.longitude}, pointsStr, 'Points');
+            }
+        });
     });
 
     title.set("Pointerest");
@@ -25,9 +39,9 @@
         bar: mainBar
     });
 
-    function newPoiSubmitted(amount, candidate) {
-        map.addMarker({lat: lat, lng: lng});
-        map.moveTo(12, {lat: lat, lng: lng})
+    function newPoiSubmitted(latitude, longitude) {
+        map.addMarker({lat: longitude, lng: longitude});
+        map.moveTo(12, {lat: latitude, lng: longitude})
     }
 </script>
 
