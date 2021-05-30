@@ -14,8 +14,8 @@
 
 <h3 class="uk-heading-divider">
   Poi List </h3>
-<div class="uk-table uk-table-divider">
-  <table class="uk-table">
+<div class="uk-table uk-table-divider uk-table-hover">
+  <table class="uk-table uk-table-divider uk-table-hover">
     <thead>
     <th>
       Poiname
@@ -30,17 +30,16 @@
       Longitude
     </th>
     </thead>
-    <tbody class="uk-text-left">
+    <tbody class="uk-text-left uk-table-hover">
     {#if pointList}
       {#each pointList as point}
         <tr>
           <td>{point.poiname}</td>
           <td>{point.category}</td>
           <td>{point.latitude}</td>
-          <td>{point.category}</td>
           <td>{point.longitude}</td>
           <td>
-            {point.user}
+            {point._id}
           </td>
           <tr>
           <tbody>

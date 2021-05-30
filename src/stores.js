@@ -25,7 +25,7 @@ export const mainBar = [
     {
         title: "Points",
         icon: "fa fa-map-signs fa-3x",
-        colour: "color:rgb(153, 196, 74)",
+        colour: "color:rgb(139, 191, 120)",
         link: "/#/points",
     },
     {
@@ -35,9 +35,21 @@ export const mainBar = [
         link: "/#/users",
     },
     {
+        title: "Pointerest Map",
+        icon: "fas fa-map-marked-alt fa-3x",
+        colour: "color:rgb(255, 195, 84)",
+        link: "/#/Map",
+    },
+    {
+        title: "Analysis",
+        icon: "fas fa-chart-line fa-3x",
+        colour: "color:rgb(149, 93, 176)",
+        link: "/#/analysis",
+    },
+    {
         title: "Settings",
         icon: "fas fa-sliders-h fa-3x",
-        colour: "color:rgb(14, 168, 160)",
+        colour: "color:rgb(62, 204, 247)",
         link: "/#/settings",
     },
     {
@@ -55,6 +67,7 @@ export const title = writable("");
 export const subTitle = writable("");
 
 export const user = writable({
+    id: "",
     email: "",
     token: ""
 });
