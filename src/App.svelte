@@ -5,8 +5,10 @@
 
   import Login from "./pages/Login.svelte"
   import Signup from "./pages/Signup.svelte";
+  import Analysis from "./pages/Analysis.svelte";
   import Points from "./pages/Points.svelte"
   import NewPoi from "./pages/NewPoi.svelte";
+  import Map from "./pages/map.svelte";
   import Settings from "./pages/Settings.svelte";
   import Users from "./pages/Users.svelte";
   import Navigator from "./components/Navigator.svelte"
@@ -17,8 +19,10 @@
   let routes = {
     "/" : Main,
     "/login": Login,
+    "/analysis": Analysis,
     "/users": Users,
     "/newpoi": NewPoi,
+    "/map": Map,
     "/points": Points,
     "/logout" : Main,
     "/signup" : Signup,

@@ -33,12 +33,23 @@ export class PointerestService {
         }
     }
 
+    async getaUser() {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/users/${id}`);
+            this.user = await response.data;
+            return this.user;
+        } catch (error) {
+            return [];
+        }
+    }
+
     async login(email, password) {
         try {
             const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
             if (response.data.success) {
                 axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
                 user.set({
+                    id: response.data.id,
                     email: email,
                     token: response.data.token
                 });
@@ -99,6 +110,7 @@ export class PointerestService {
 
     async createPoi(username, poiname, category, description, latitude, longitude) {
         try {
+
             const point = {
                 username: username,
                 poiname: poiname,
@@ -107,7 +119,8 @@ export class PointerestService {
                 latitude: latitude,
                 longitude: longitude,
             };
-
+            console.log(this.point);
+            this.pointList.push(point);
             const response = await axios.post(this.baseUrl + "/api/points", point);
             console.log(response);
             return response.status == 200;

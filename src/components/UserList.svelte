@@ -6,8 +6,8 @@
     let userCount;
     let userList;
     onMount(async () => {
-        userList = await poiService.getUsers()
-        userCount = userList.length
+        userList = await poiService.getUsers();
+        userCount = userList.length;
     })
 </script>
 
