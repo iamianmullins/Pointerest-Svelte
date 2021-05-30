@@ -4,6 +4,7 @@ import Layer = L.Layer;
 import LayersObject = L.Control.LayersObject;
 import LayerGroup = L.LayerGroup;
 import LayerControl = L.Control.Layers;
+const apiKey = "efe0730211de1501d78e9ad5d58d2ace";
 
 export interface Location {
     lat: number;
@@ -17,9 +18,29 @@ export interface MapConfig {
 }
 
 export class LeafletMap {
+
     imap: Map;
     control: LayerControl;
-    overlays: LayersObject = {};
+    overlays = {
+        Wind : L.tileLayer('http://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png?appid={apiKey}', {
+            maxZoom: 19,
+            attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            apiKey: apiKey,
+            opacity: 0.5
+        }),
+        Clouds : L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid={apiKey}', {
+            maxZoom: 19,
+            attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            apiKey: apiKey,
+            opacity: 0.5
+        }),
+        Pressure : L.tileLayer('http://{s}.tile.openweathermap.org/map/pressure/{z}/{x}/{y}.png?appid={apiKey}', {
+            maxZoom: 19,
+            attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            apiKey: apiKey,
+            opacity: 0.5
+        })
+    }
 
     // https://leaflet-extras.github.io/leaflet-providers/preview/
 
@@ -33,6 +54,10 @@ export class LeafletMap {
             attribution:
                 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
         }),
+        TopoMap: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            attribution:
+                'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        })
     };
 
     constructor(id: string, descriptor: MapConfig, activeLayer = '') {

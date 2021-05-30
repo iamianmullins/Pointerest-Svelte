@@ -35,6 +35,12 @@ export const mainBar = [
         link: "/#/users",
     },
     {
+        title: "Reviews",
+        icon: "fa fa-comments fa-3x",
+        colour: "color:rgb(235, 229, 52)",
+        link: "/#/reviews",
+    },
+    {
         title: "Pointerest Map",
         icon: "fas fa-map-marked-alt fa-3x",
         colour: "color:rgb(255, 195, 84)",

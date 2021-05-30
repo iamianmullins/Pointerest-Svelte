@@ -8,6 +8,7 @@
   import Analysis from "./pages/Analysis.svelte";
   import Points from "./pages/Points.svelte"
   import NewPoi from "./pages/NewPoi.svelte";
+  import Reviews from "./pages/Reviews.svelte";
   import Map from "./pages/map.svelte";
   import Settings from "./pages/Settings.svelte";
   import Users from "./pages/Users.svelte";
@@ -21,6 +22,7 @@
     "/login": Login,
     "/analysis": Analysis,
     "/users": Users,
+    "/reviews": Reviews,
     "/newpoi": NewPoi,
     "/map": Map,
     "/points": Points,
